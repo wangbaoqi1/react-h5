@@ -1,0 +1,58 @@
+.modal-button {
+  display: flex;
+  justify-content: space-between;
+  width: 622px;
+
+  &-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 278px;
+    height: 64px;
+    background-color: #fff;
+    border-radius: 34px;
+    border: 1px solid #8c8c8c;
+
+    &-button {
+      font-size: 28px;
+      color: #656665;
+      line-height: 30px;
+    }
+  }
+
+  &-right,
+  &-right-disabled {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 282px;
+    height: 68px;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 153, 110, 1),
+      rgba(255, 71, 89, 1)
+    );
+    border-radius: 35px;
+
+    &-image,
+    &-image-disabled {
+      position: absolute;
+      right: 0;
+      width: 114px;
+      height: 68px;
+    }
+    &-image-disabled {
+      opacity: 0.5;
+    }
+
+    &-button {
+      font-size: 28px;
+      color: #ffffff;
+      line-height: 30px;
+    }
+  }
+  &-right-disabled {
+    opacity: 0.5;
+  }
+}

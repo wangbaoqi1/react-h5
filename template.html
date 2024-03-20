@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=yes" />
+
+    <title><%= htmlWebpackPlugin.options.pageTitle %></title>
+<style>
+  html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, Helvetica, sans-serif;
+  -webkit-text-size-adjust: none;
+}
+</style>
+    <% if (htmlWebpackPlugin.options.isProduction) { %>
+    <script src="https://cdn.staticfile.org/react/16.14.0/umd/react.production.min.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.14.0/umd/react-dom.production.min.js"></script>
+    <% } else { %>
+    <script src="https://cdn.staticfile.org/react/16.14.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.14.0/umd/react-dom.development.js"></script>
+    <% } %>
+  </head>
+
+  <body>
+    <div id="J_Container" style="height: 100%"></div>
+  </body>
+
+  <script>
+    (function () {
+      var iLastTouch = null; //缓存上一次tap的时间
+      if (navigator.userAgent.toLowerCase().indexOf('iphone') >= 0) {
+        document.body.addEventListener(
+          'touchend',
+          function (event) {
+            var iNow = new Date().getTime();
+            iLastTouch = iLastTouch || iNow + 1 /** 第一次时将iLastTouch设为当前时间+1 */;
+            var delta = iNow - iLastTouch;
+            if (delta < 500 && delta > 0) {
+              event.preventDefault();
+              return false;
+            }
+            iLastTouch = iNow;
+          },
+          false,
+        );
+      }
+    })();
+  </script>
+</html>
