@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "非洲物流项目H5页面",
   "main": "index.js",
+  "author": {
+    "name": "wangbbaoqi1",
+    "email": "1028368131@qq.com",
+    "url": "https://github.com/wangbaoqi1"
+  },
   "scripts": {
     "build": "node ./config/build.js",
     "analyze": "node ./config/build.js -- --showAnalyzer=true",
